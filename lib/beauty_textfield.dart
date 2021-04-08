@@ -5,7 +5,7 @@ class BeautyTextfield extends StatefulWidget {
   final double width, height, wordSpacing;
   final Color backgroundColor, accentColor, textColor;
   final String placeholder, fontFamily;
-  final Icon prefixIcon, suffixIcon;
+  final Icon suffixIcon;
   final TextInputType inputType;
   final EdgeInsets margin;
   final Duration duration;
@@ -23,7 +23,6 @@ class BeautyTextfield extends StatefulWidget {
   const BeautyTextfield(
       {@required this.width,
       @required this.height,
-      this.prefixIcon,
       @required this.inputType,
       this.controller,
       this.suffixIcon,
@@ -121,14 +120,6 @@ class _BeautyTextfieldState extends State<BeautyTextfield> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Icon(
-                    widget.prefixIcon.icon,
-                    color:
-                        isFocus ? widget.backgroundColor : widget.accentColor,
-                  ),
-                ),
                 Expanded(
                   flex: 5,
                   child: Container(
