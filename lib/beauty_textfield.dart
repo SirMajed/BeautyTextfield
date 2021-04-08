@@ -23,7 +23,7 @@ class BeautyTextfield extends StatefulWidget {
   const BeautyTextfield(
       {@required this.width,
       @required this.height,
-      @required this.prefixIcon,
+      this.prefixIcon,
       @required this.inputType,
       this.controller,
       this.suffixIcon,
@@ -54,7 +54,6 @@ class BeautyTextfield extends StatefulWidget {
       this.onSubmitted})
       : assert(width != null),
         assert(height != null),
-        assert(prefixIcon != null),
         assert(inputType != null);
 
   @override
