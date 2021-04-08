@@ -5,7 +5,6 @@ class BeautyTextfield extends StatefulWidget {
   final double width, height, wordSpacing;
   final Color backgroundColor, accentColor, textColor;
   final String placeholder, fontFamily;
-  final Icon suffixIcon;
   final TextInputType inputType;
   final EdgeInsets margin;
   final Duration duration;
@@ -25,7 +24,6 @@ class BeautyTextfield extends StatefulWidget {
       @required this.height,
       @required this.inputType,
       this.controller,
-      this.suffixIcon,
       this.duration = const Duration(milliseconds: 500),
       this.margin = const EdgeInsets.all(10),
       this.obscureText = false,
@@ -74,14 +72,10 @@ class _BeautyTextfieldState extends State<BeautyTextfield> {
               ? [BoxShadow(color: Colors.grey, blurRadius: 2, spreadRadius: 1)]
               : BoxShadow(spreadRadius: 0, blurRadius: 0),
           borderRadius: widget.cornerRadius,
-          color: widget.suffixIcon == null
-              ? isFocus ? widget.accentColor : widget.backgroundColor
-              : widget.backgroundColor),
+          color:  widget.accentColor,
       child: Stack(
         children: <Widget>[
-          widget.suffixIcon == null
-              ? Container()
-              : Align(
+          Align(
                   alignment: Alignment.centerRight,
                   child: AnimatedContainer(
                     width: isFocus ? 500 : 40,
@@ -96,9 +90,7 @@ class _BeautyTextfieldState extends State<BeautyTextfield> {
                     ),
                   ),
                 ),
-          widget.suffixIcon == null
-              ? Container()
-              : GestureDetector(
+          GestureDetector(
                   onTap: () {
                     setState(() {
                       isFocus ? isFocus = false : isFocus = true;
@@ -110,10 +102,7 @@ class _BeautyTextfieldState extends State<BeautyTextfield> {
                   child: Container(
                     margin: EdgeInsets.only(right: 15),
                     alignment: Alignment.centerRight,
-                    child: Icon(
-                      widget.suffixIcon.icon,
-                      color: widget.textColor,
-                    ),
+                    
                   ),
                 ),
           Center(
